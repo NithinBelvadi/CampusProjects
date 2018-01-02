@@ -1,0 +1,97 @@
+<div class="container">
+<h1>Welcome</h1>
+<br /><br />
+<div class="tab">
+  <button class="tablinks" onclick="openInfo(event, 'Costs')">Costs</button>
+  <button class="tablinks" onclick="openInfo(event, 'Offers')">Offers</button>
+</div>
+<div id="Costs" class="tabcontent">
+    <h3>Below mentioned are the costs for different groups:</h3>
+      <table>
+  <tr>
+    <th>Types of MemberShips</th>
+    <th>Costs</th>
+  </tr>
+  <tr>
+    <td>Student Membership*</td>
+    <td>60 EUR per year </td>
+  </tr>
+  <tr>
+    <td>Senior Membership</td>
+    <td>70 EUR per year </td>
+    </tr>
+  <tr>
+    <td>Day Use</td>
+    <td>3 EUR per Individual</td>
+  </tr>
+  <tr>
+    <td>Yearly Membership for other University Students</td>
+    <td>80 EUR</td>
+  </tr>
+  <tr>
+    <td>Lifetime Membership</td>
+    <td>350 EUR</td>
+  </tr>
+</table>
+<p><small>*Only for SRH Students</small></p>
+</div>
+<div id="Offers" class="tabcontent">
+    <h3>Below mentioned are the discounts available for different groups:</h3>
+   <table>
+  <tr>
+    <th>Types of MemberShips</th>
+    <th>Costs</th>
+    <th>Discounts</th>
+  </tr>
+  <tr>
+    <td>Student Membership</td>
+    <td>60 EUR per year </td>
+    <td>10% Discount with Valid SRH Student ID</td>
+  </tr>
+  <tr>
+    <td>Senior Membership</td>
+    <td>70 EUR per year </td>
+    <td>10% Discount on people above 45 years of age</td>
+    </tr>
+  <tr>
+    <td>Day Use</td>
+    <td>3 EUR per Individual</td>
+    <td>Group of 10 people pay 20 EUR</td>
+  </tr>
+  <tr>
+    <td>Yearly Membership for Other University Students</td>
+    <td>80 EUR</td>
+    <td>5% Discount with Valid Student ID</td>
+  </tr>
+
+</table>
+
+
+</div>
+<div id="Membership Type" class="tabcontent">
+    <p>Your Current Membership type</p>
+    <br />
+    <table>
+        <tr class="text" *ngFor="let c of showmemtype | async">
+        <td> Membership Type  </td>  &nbsp;&nbsp;&nbsp;&nbsp;  <td> {{c.$value | json}}</td>
+      </tr>
+    </table>
+    <br />
+
+    <p>Change your membership type.</p><br />
+
+
+
+      <select  [(ngModel)]="memtype">
+        <option value="Student Membership" >Student Membership</option>
+        <option value="Senior Membership">Senior Membership</option>
+        <option value="Day Use">Day Use</option>
+        <option value="Yearly Membership">Yearly Membership</option>
+        <option value="Lifetime Membership">Lifetime Membership</option>
+      </select><br />
+      <button type="submit"  (click)="changemem()">Update Membership</button>
+
+</div>
+
+
+</div>

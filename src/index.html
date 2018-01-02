@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <base href="/">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Favicon -->
+    <link href="images/apple-icon.png" rel="icon" type="image/png">
+    <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+    <link data-require="bootstrap-css@3.3.1" data-semver="3.3.1" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.1.js"></script>
+
+    <!-- Efinance Title -->
+    <title>SRH Campus Sports</title>
+
+    <!-- css file -->
+    <link rel="stylesheet" type="text/css" media="screen" href="css/infotabs.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/aboutus.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Responsive stylesheet -->
+    <link rel="stylesheet" href="css/responsive.css">
+
+
+</head>
+
+<body >
+
+    <!-- Main Header Start -->
+      <div>
+      <app-root></app-root>
+    </div>
+
+    <!-- Main Header end -->
+
+
+
+
+
+
+
+</body>
+
+<!-- script start from here -->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-dropdownhover.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="js/isotope.js"></script>
+<script type="text/javascript" src="js/stellar.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+<script type="text/javascript" src="js/css3-animate-it.js"></script>
+<script type="text/javascript" src="js/bootstrap-slider.js"></script>
+<script type="text/javascript" src="js/jquery.scrollUp.js"></script>
+<script type="text/javascript" src="js/classie.js"></script>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap-dropdownhover.min.js"></script>
+<script type="text/javascript" src="js/jquery-ui.js"></script>
+<script type="text/javascript" src="js/jquery-scrolltofixed-min.js"></script>
+<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+<script type="text/javascript" src="js/jquery.magnific-popup.min.js"></script>
+<script type="text/javascript" src="js/css3-animate-it.js"></script>
+<script type="text/javascript" src="js/bootstrap-slider.js"></script>
+<script type="text/javascript" src="js/jquery.scrollUp.js"></script>
+<script type="text/javascript" src="js/classie.js"></script>
+
+<!-- Custom script for all pages -->
+<script type="text/javascript" src="js/script.js"></script>
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-strap.js"></script>
+<script src="vendor/angular-strap.tpl.js"></script>
+<script src="vendor/angular-messages.js"></script>
+<script src="vendor/angular-resource.js"></script>
+<script src="vendor/angular-route.js"></script>
+<script src="vendor/angular-route.min.js"></script>
+<script src="vendor/angular-cookies.js"></script>
+<script src="vendor/moment.min.js"></script>
+<script src="app.js"></script>
+<!-- Custom script for all pages -->
+<script type="text/javascript" src="js/script.js"></script>
+
+<!-- Funfact START -->
+<script>
+function openInfo(evt, Name) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(Name).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+
+<script type="text/javascript">
+    $(document).ready(function ($) {
+        $('.start-count').each(function () {
+            var $this = $(this);
+            $this.data('target', parseInt($this.html()));
+            $this.data('counted', false);
+            $this.html('0');
+        });
+
+        $(window).bind('scroll', function () {
+            var speed = 3000;
+            $('.start-count').each(function () {
+                var $this = $(this);
+                if (!$this.data('counted') && $(window).scrollTop() + $(window).height() >= $this.offset().top) {
+                    $this.data('counted', true);
+                    $this.animate({
+                        dummy: 1
+                    }, {
+                        duration: speed,
+                        step: function (now) {
+                            var $this = $(this);
+                            var val = Math.round($this.data('target') * now);
+                            $this.html(val);
+                            if (0 < $this.parent('.value').length) {
+                                $this.parent('.value').css('width', val + '%');
+                            }
+                        }
+                    });
+                }
+            });
+        }).triggerHandler('scroll');
+    });
+</script>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+</html>

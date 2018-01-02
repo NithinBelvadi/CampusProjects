@@ -1,0 +1,51 @@
+
+    <!-- Inner page hedaing start -->
+    <section class="irs-inner-page-heading irs-layer-black">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="irs-inner-heading">
+                        <h2>My Account</h2>
+                        <i class="icofont icofont-education"></i>
+                        <p><a href="index-layout1.html">HOME</a> > <a href="account.html#">Account</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Inner page hedaing end -->
+
+    <!-- Account start -->
+    <section class="irs-account-field">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="irs-account-col">
+                        <h3>login</h3>
+                        <form id="contact_form" #formDataLogin='ngForm' (ngSubmit)="onSubmitlogin(formDataLogin)"name="contact_form" action="includes/contact.php.html"  >
+                            <input id="Usernamelogin" name="Usernamelogin"  (ngModel)="Usernamelogin" placeholder="Email*" required="required"  type="text">
+                            <input id="Passwordlogin" name="Passwordlogin" type="password" (ngModel)="Passwordlogin"  placeholder="Password*" required="required"  >
+                            <br>
+                            <button class="btn btn-default irs-big-btn" [disabled]="!formDataLogin.valid"  type="submit">login</button><br>
+                            <button class="btn btn-default irs-big-btn" (click)="loginGoogle()" id="google">Login With Google</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="irs-account-col">
+                        <h3>create a new account</h3>
+                        <form id="contact_form_two"  #formData='ngForm' (ngSubmit)="onSubmit(formData)" name="contact_form" action="includes/contact.php.html" method="post" novalidate="novalidate">
+                            <input id="first_name" name="first_name"  placeholder="First Name*" (ngModel)="first_name" type="text">
+                            <input id="last_name" name="last_name" placeholder="Last Name*" (ngModel)="last_name" required="required" data-error="Last Name." type="text">
+                            <input id="password" name="password" type="password" class="form-control" (ngModel)="password" placeholder="Password*" required="required" value="">
+                            <input id="email" name="email"  placeholder="Email*" required="required"  (ngModel)="email" data-error="Email Name." type="text">
+                            <br>
+                            <button class="btn btn-default irs-big-btn" type="submit" [disabled]="!formData.valid" >Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Account end -->

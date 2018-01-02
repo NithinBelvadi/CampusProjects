@@ -1,0 +1,184 @@
+<div class="container">
+<h1>Welcome</h1>
+<br /><br />
+<div class="tab">
+<button class="tablinks" onclick="openInfo(event, 'Edit Personal Info')">Edit Personal Info</button>
+<button class="tablinks" onclick="openInfo(event, 'Select any Course')">Select any Course</button>
+<button class="tablinks" onclick="openInfo(event,'Membership Type')">Membership Type</button>
+<button class="tablinks" onclick="openInfo(event,'Events')">Events</button>
+<button class="tablinks" onclick="openInfo(event,'Events')">Booking Facilities</button>
+</div>
+<div id="Edit Personal Info" class="tabcontent">
+
+  <table>
+    <pre>  <tr class="text" *ngFor="let u of user | async">
+      <td> {{u.$key | json}} : </td>  &nbsp;&nbsp;&nbsp;&nbsp;  <td>  {{u.$value | json}}</td>
+    </tr>
+    </pre>
+  </table>
+  <br /><br />
+  <div class="row">
+  <div class="irs-account-col">
+<h3>Edit your Data: </h3>
+<form id="buddy_form"  #BuddyForm='ngForm' (ngSubmit)="onSubmit(BuddyForm)" name="buddy_form" action="includes/contact.php.html" method="post" novalidate="novalidate">
+    <label for="first_name">First Name</label>
+    <input id="first_name" name="first_name"  placeholder="First Name*" (ngModel)="first_name" type="text"> <br />
+    <br />
+    <label for="last_name">Last Name</label>
+    <input id="last_name" name="last_name" placeholder="Last Name*" (ngModel)="last_name" required="required" data-error="Last Name." type="text"><br /><br />
+
+     <label for="sport_selected">Select your Preffered Activity</label>
+    <select id="sport_selected" name="sport_selected" (ngModel)="sport_selected" size=1><option><option> Badminton<option> Beachvolleyball<option> Eislaufen<option> Forr&#243;<option> Freeletics<option> Klettern/Bouldern<option> Laufen<option> Mountainbiken<option> Radfahren<option> RocknRoll<option> Salsa und Merengue<option> Standard und Latein<option> Tango Argentino<option> Tennis<option> Wandern</select>
+<br /><br />
+    <label for="sex">Sex</label>
+    <select id="sex" name="sex" (ngModel)="sex" size=1>
+          <option value="W"> Woman
+                <option value="M"> Mann
+                   </select>
+
+<br /><br />
+    <label for="expertise">Expertise</label>
+    <select id="expertise" name="expertise" (ngModel)="expertise" size=1><option value="0" selected> 0 - Anfänger/in ohne Vorkenntnisse <option value="1"> 1 - Anfänger/in mit geringen Kenntnissen <option value="2"> 2 - Ambitionierte(r) <option value="3"> 3 - Fortgeschrittene(r) <option value="4"> 4 - Fortgeschrittene(r) mit sehr guten Kenntnissen <option value="5"> 5 - Profi
+            </select>
+
+
+<br /><br />
+    <label for="age">Age</label>
+    <select id="age" name="age" (ngModel)="age" size=1><option><option> 16 <option> 17 <option> 18 <option> 19 <option> 20 <option> 21 <option> 22 <option> 23 <option> 24 <option> 25 <option> 26 <option> 27 <option> 28 <option> 29 <option> 30 <option> 31 <option> 32 <option> 33 <option> 34 <option> 35 <option> 36 <option> 37 <option> 38 <option> 39 <option> 40
+<option value=100> über 40
+   </select>
+
+
+<br /><br />
+    <label for="status">Status</label>
+   <select id="status" name="status" (ngModel)="status" size=1><option value="1"> Student/In <option value="2"> Mitarbeiter/In <option value="3"> Externe/r
+      </select>
+
+<br /><br />
+
+    <label for="email">Email</label>
+    <input id="email" name="email"  placeholder="Email*" required="required"  (ngModel)="email" data-error="Email Name." type="text">
+    <br /><br />
+
+    <label for="desc">Address</label>
+    <input id="address" name="address"  placeholder=""  (ngModel)="address"  type="text">
+
+    <br /><br />
+    <button class="btn btn-default irs-big-btn" type="submit"  >Register</button>
+</form>
+</div>
+</div>
+</div>
+<div id="Select any Course" class="tabcontent">
+    <h3>Your Current Courses :</h3>
+    <table>
+        <tr class="text" *ngFor="let c of courses | async">
+        <td> Name:  {{c.$key | json}}  </td>  &nbsp;&nbsp;&nbsp;&nbsp;  <td>  Information:   {{c.$value | json}}</td>
+      </tr>
+    </table>
+    <br />
+      <button (click)="clearallcourses()" >Clear My Courses</button>
+    <h3>Join a Course :</h3>
+
+      <table>
+  <tr>
+    <th>Courses Available</th>
+    <th>Timings</th>
+    <th>Location</th>
+    <th>Trainer</th>
+    <th>Register</th>
+
+  </tr>
+  <tr>
+    <td>Zumba for Everyone</td>
+    <td>15th July to 26th August;Every Monday,<br />Friday,Saturday; From 16:30 - 20:00</td>
+    <td>Room 14 - Main Building</td>
+    <td>John Cena</td>
+    <td><button (click)="regzumba()" >Register</button></td>
+  </tr>
+  <tr>
+    <td>Salsa for Beginners</td>
+    <td>20th May - 4th Aug;Every Friday,<br />Sat, Sun From 16:30 - 20:00</td>
+    <td>Room 1 - Dance Hall</td>
+    <td>Mr Chyropractor</td>
+    <td><button (click)="regsalsa()" >Register</button></td>
+  </tr>
+  <tr>
+    <td>Professional Ballroom Dancing</td>
+    <td>8th Sept - 16th Nov;Every Friday,<br />Sat, Sun; From 20:00 - 22:30</td>
+    <td>Room 1 - Dance Hall</td>
+    <td>Mel Gibson</td>
+    <td><button (click)="regballdance()" >Register</button></td>
+  </tr>
+  <tr>
+    <td>Yoga Booty Balley</td>
+    <td>22nd July to 26th Sept;Every Monday,<br />Friday,Saturday; From 16:30 - 20:30</td>
+    <td>Room 1 - Dance Hall</td>
+    <td>Herr Wolfenstein</td>
+    <td><button (click)="regyogboot()" >Register</button></td>
+  </tr>
+  <tr>
+    <td>Thai Bo for Beginners</td>
+    <td>15th July to 26th August;Every Monday,<br />Friday,Saturday; From 16:30 - 20:00</td>
+    <td>Room 1 - Dance Hall</td>
+    <td>Frau Adolf</td>
+    <td><button (click)="regthaibo()" >Register</button></td>
+  </tr>
+
+</table>
+
+</div>
+<div id="Membership Type" class="tabcontent">
+    <p>Your Current Membership type</p>
+    <br />
+    <table>
+        <tr class="text" *ngFor="let c of showmemtype | async">
+        <td> Membership Type  </td>  &nbsp;&nbsp;&nbsp;&nbsp;  <td> {{c.$value | json}}</td>
+      </tr>
+    </table>
+    <br />
+
+    <p>Change your membership type.</p><br />
+
+
+
+      <select  [(ngModel)]="memtype">
+        <option value="Student Membership" >Student Membership</option>
+        <option value="Senior Membership">Senior Membership</option>
+        <option value="Day Use">Day Use</option>
+        <option value="Yearly Membership">Yearly Membership</option>
+        <option value="Lifetime Membership">Lifetime Membership</option>
+      </select><br />
+      <button type="submit"  (click)="changemem()">Update Membership</button>
+
+</div>
+<div id="Events" class="tabcontent">
+    <h3>My Registered Events:</h3>
+    <table>
+        <tr class="text" *ngFor="let c of myevents | async">
+        <td> Event :  </td>  &nbsp;&nbsp;&nbsp;&nbsp;  <td>  {{c.$value | json}}</td>
+      </tr>
+    </table>
+    <br />
+      <button (click)="clearallevents()" >Clear My Events</button>
+    <h3>Upcoming Events</h3>
+
+<br />
+<p>Change your membership type.</p><br />
+
+
+
+  <select  [(ngModel)]="regevent">
+    <option value="10k Marathon - Heidelberg-Mannheim" >10k Marathon - Heidelberg-Mannheim</option>
+    <option value="Triathlon - Rhine-Neckar">Triathlon - Rhine-Neckar</option>
+    <option value="Hiking - Konigstuhl to Neckargemund">Hiking - Konigstuhl to Neckargemund</option>
+    <option value="Dragonboat Racking Heidelberg">Dragonboat Racking Heidelberg</option>
+
+  </select><br />
+  <button type="submit"  (click)="eventupdate()">Update Membership</button>
+
+
+</div>
+
+
+</div>
